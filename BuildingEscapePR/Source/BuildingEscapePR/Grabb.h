@@ -1,20 +1,20 @@
 // Copyright Stefan Oancea 2017
 
 #pragma once
-#include "Math/Color.h"
+
 #include "CoreMinimal.h"
-#include "Public/DrawDebugHelpers.h"
 #include "Components/ActorComponent.h"
-#include "GameFramework/Actor.h"
-#include "Grabber.generated.h"
-UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
-class BUILDINGESCAPEPR_API UGrabber : public UActorComponent
+#include "Grabb.generated.h"
+
+
+UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+class BUILDINGESCAPEPR_API UGrabb : public UActorComponent
 {
 	GENERATED_BODY()
 
 public:	
 	// Sets default values for this component's properties
-	UGrabber();
+	UGrabb();
 
 protected:
 	// Called when the game starts
