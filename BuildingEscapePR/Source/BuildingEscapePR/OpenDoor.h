@@ -4,8 +4,8 @@
 
 #include "Engine/TriggerVolume.h"
 #include "CoreMinimal.h"
-#include "Components/ActorComponent.h"
 #include "OpenDoor.generated.h"
+#include "GameFramework/Actor.h"
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class BUILDINGESCAPEPR_API UOpenDoor : public UActorComponent
@@ -21,6 +21,7 @@ protected:
 	virtual void BeginPlay() override;
 
 	void OpenDoor();
+	void CloseDoor();
 
 public:	
 	// Called every frame
@@ -28,14 +29,20 @@ public:
 
 
 private:
-	UPROPERTY(VisibleAnywhere)
+	UPROPERTY(EditAnywhere)
 	float OpenAngle = 90.f;
+
+	AActor* Owner;
 
 	UPROPERTY(EditAnywhere)
 	ATriggerVolume* PressurePlate;
 	
-	UPROPERTY(EditAnywhere)
-	AActor * ActorThatOpens; // Remember pawn inherits from Ator
+	float DoorCloseDelay = 1.f;
+
+	
+	float doorLastOpenTime;
+
+	AActor* ActorThatOpens; // Remember pawn inherits from Actor
 
 	//
 
